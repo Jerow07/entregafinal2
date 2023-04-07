@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="style.css">
+    <link rel="icon" href="pokebola.png">
+    <title >Pokedesk</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+
+<!-- Pokedesk -->
+
+<body class="Pokebody">
+   <h1> Son solo 150 Pokemons!!</h1>
+    <div>
+        <h2>Buscar pokemon  &#128269 <br>(Por Numero o Nombre)</h2>
+        <input id="busqueda" type="text " placeholder="Nombre del pokemon"> <br>
+        <button id="botonbuscar">Buscar</button>
+        <button id="limpiar1">Limpiar</button>
+
+    </div>
+    <div>
+        <h2>Filtrar pokemon</h2>
+        <select id="filtrar" type="text " placeholder="tipo de pokemon">
+            <option value="ice">Hielo</option>
+            <option value="fire">Fuego</option>
+            <option value="electric">Electrico</option>
+            <option value="water">Agua</option>
+            <option value="grass">Planta</option>
+            <option value="bug">Bicho</option>      
+            <option value="normal">Normal</option>
+            <option value="poison">Veneno</option>
+            <option value="ground">Tierra</option>
+            <option value="psychic">Psiquico</option>
+            <option value="fighting">Lucha</option>
+            <option value="rock">Roca</option>
+            <option value="dragon">Dragon</option>
+            <option value="ghost">Fantasma</option>
+            <option value="fairy">Hada</option>
+        </select>
+        <button id="botonfiltrar">Filtrar</button>
+        <button id="limpiar">Limpiar</button>
+
+    </div>    
+    <h2>Pokemons favoritos</h2>
+    <div>
+        <button style="margin-bottom: 20px;" id="botonFavoritos">Favoritos</button>
+        <button id="limpiar3">Pantalla principal</button>
+
+    </div>
+    <main class="Pokedesk bg-red">
+
+        <!--  lights pokedesk -->
+        <header class="lights">
+            <div class="biglight"></div>
+            <div class="lights123">
+                <div class="light bg-blue"></div>
+                <div class="light bg-red"></div>
+                <div class="light bg-yellow"></div>
+                <div class="parlante"></div>
+                <div class="textoMarca">
+                    <h1 class="marca">Coquedex</h1>
+                </div>
+            </div>
+
+        </header>
+        <!--buttons  -->
+        <aside>
+
+        </aside>
+        <!-- Display poke -->
+        <main class="display">
+            <div class="displaymarco">
+                <div class="contenedorBotonesMarco">
+                    <div class="botonMarco bg-red"></div>
+                    <div class="botonMarco bg-red"></div>
+                </div>
+                <div class="displaylcd" id="contenedor">
+
+                </div>
+            </div>
+
+        </main>
+        <!-- buttones nav poke -->
+        <footer>
+            <div class="divpadre">
+                <div class="contenedorFlechas">
+                <img class="flecha-izquierda" id="flecha-izquierda" src="flecha-izquierda (1).png" alt="">
+                <img class="flecha-derecha" id="flecha-derecha" src="flecha-correcta (1).png " alt="">
+            </div>
+                <div class="divBotonNav">
+                    <h1 class="cruzBoton">&#10010;</h1>
+                </div>
+                <div class="botonEstrella">
+                <img class="botonPush" id="botonFav" src="estrella.png" alt="">
+                
+            </div>
+        </footer>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
