@@ -70,9 +70,9 @@ function mostrar(array) {
     array.forEach(pokemon => {
         const { name, types , esfavorito} = pokemon
         if(esfavorito){
-            botonFav.setAttribute("src","silueta-de-estrella-negra.png")
+            botonFav.setAttribute("src","assets/images/silueta-de-estrella-negra.png")
         }else{
-            botonFav.setAttribute("src","estrella.png")
+            botonFav.setAttribute("src","assets/images/estrella.png")
         }
         let estructura = document.createElement("div")
         estructura.style = "display: flex; flex-direction: column; align-items: center;"

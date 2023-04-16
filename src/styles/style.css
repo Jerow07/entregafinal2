@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Pokemonletter";
-    src: url(Pokemon\ Hollow.ttf);
+    src: url(../../assets/fonts/PokemonHollow.ttf);
 }
 
 .Pokebody {
 
     display: grid;
     place-content: center;
-    background-image: url(pokemon.jpg);
+    background-image: url(../../assets/images/pokemon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
