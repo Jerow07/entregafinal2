@@ -48,7 +48,7 @@ if (favoritos) {
 else {
     fetchPokemons()
 } 
-
+///FEctch de la appi pokemon//
 async function fetchPokemons() {
     return fetch("https://pokeapi.co/api/v2/pokemon?limit=150")
     .then(response => response.json())
@@ -57,18 +57,22 @@ async function fetchPokemons() {
             fetch(pokemon.url)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
+
                     data.esfavorito = false
                     pokemons.push(data)
+
                     mostrar([pokemons[iteradorActual]])
+
                 })
         }
     })  
 }
-
+//Funcion mostrar///
 function mostrar(array) {
     divPadre.innerHTML = ''
     array.forEach(pokemon => {
-        const { name, types , esfavorito} = pokemon
+        const { name, types , esfavorito, id} = pokemon
         if(esfavorito){
             botonFav.setAttribute("src","assets/images/silueta-de-estrella-negra.png")
         }else{
@@ -79,6 +83,7 @@ function mostrar(array) {
         estructura.innerHTML = `
         <h1 style="color:black">${name}</h1>
         <h1 style="color:black">type: ${types[0].type.name}</h1>
+        <h1 style="color:black; font-size:20px; margin-top:-30px" > ID: ${id}
         <img src=${pokemon.sprites.front_default} width="100" height="100" />
     `
         divPadre.append(estructura)
@@ -128,23 +133,11 @@ function guardar (){
     const favoritos = pokemons.filter(pokemon => pokemon.esfavorito === true)
     localStorage.setItem("clave", JSON.stringify(favoritos));
 }
-///FUNCION REUTILIZAR PARA favoritos AGREGAR////
 
-/* botonAgregar.addEventListener("click", () => {
-    if(inputNombre.value !="" && isNaN(parseInt(inputNombre.value))){
-    let pokemon = new Pokemon(inputNombre.value, inputTipo.value)
-    pokemons.push(pokemon)
-    mostrar(pokemons)
-    console.log(pokemons)
-    inputNombre.value = "" 
-    inputTipo.value = ""
-    localStorage.setItem("clave", JSON.stringify(pokemons));}
-    else{
-        alert("Error de pokemon.")
-    }
-}) */
 
-///MODIFICAR FUNCION PARA FILTRAR //
+
+
+///FUNCION PARA FILTRAR //
 
 botonFiltrar.addEventListener("click", () => {
     iteradorActual = 0
@@ -162,23 +155,25 @@ botonFiltrar.addEventListener("click", () => {
             filtrando = true
             pokemonsFiltrados = pokemons.filter(pokemon => pokemon.types[0].type.name === inputFiltrar.value)
             mostrar([pokemonsFiltrados[iteradorActual]])
-
         })
 
 
 }
 )
-///MODIFICAR FUNCION PARA BUSCAR //
+///FUNCION PARA BUSCAR //
 
 botonBuscar.addEventListener("click", () => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + inputBuscar.value)
         .then((response) => response.json())
-        .then((pokemon) => mostrar([pokemon])
-        )
+        .then((pokemon) => mostrar([pokemon]))
+        .catch((error)=> {
+                Toastify({
+                    text: "Este pokemon no existe",
+                    duration: 3000
+                }).showToast()
+            })})
 
-})
-
-
+//Botones limpiar///
 botonLimpiar.addEventListener("click", () => {
     filtrando = false
     iteradorActual = 0
@@ -202,7 +197,7 @@ iteradorActual= 0
 mostrar([pokemons[iteradorActual]])
 })
 
-
+//Botones direccionales///
 
 flechaDerecha.addEventListener("click", () => {
     if (!filtrando && iteradorActual === 149) {
